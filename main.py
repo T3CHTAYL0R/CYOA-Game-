@@ -37,22 +37,17 @@ class Adventurer:
             return 5    
 
 def main():
-    #Get the player name
+    # Get the player name
     player_name = input("Type your name: ")
     print("Welcome,", player_name)
 
+    # Choose Character Class
     while True:
-        response = input("Are you ready for your adventure? (yes/no): ").strip().lower()
-        if response == "yes":
-            print("Let's Begin")
-            start_adventure(player_name)
+        character_class = input("Choose your class (Barbarian, Sorcerer): ").strip()
+        if character_class in ["Barbarian", "Sorcerer"]:
             break
-        elif response == "no":
-            print("Maybe next time!")
-            sys.exit()
-
         else:
-            print("Please enter 'yes' or 'no'.")
+            print("Invalid class. Please choose another")
 
-def start_adventure(player_name):
-    print("You are Dead")
+# Create Adventure Instance
+    player = Adventurer(player_name, character_class)
